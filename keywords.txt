@@ -1,0 +1,21 @@
+#######################################
+# Syntax Coloring Map For xxx
+
+## Class
+#
+Chain	KEYWORD1
+ChainElement	KEYWORD1
+
+## Methods and Functions
+#
+addElement	KEYWORD2
+deleteElement	KEYWORD2
+getFirst	KEYWORD2
+getLast	KEYWORD2
+getNext	KEYWORD2
+getPrev	KEYWORD2
+
+## Public fields
+#
+# onClick	KEYWORD3
+
