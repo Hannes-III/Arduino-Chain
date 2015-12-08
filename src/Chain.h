@@ -32,15 +32,18 @@ class Chain{
   public:
     Chain();
 
+    void clear(bool deleteOnRemove=true);
     void addElement(ChainElement* element);
     ChainElement* removeElement(ChainElement* element, bool deleteOnRemove=true);
     ChainElement* getFirst();
     ChainElement* getLast();
+    unsigned int  size();
 
   protected:
 
   private:
     ChainElement *first, *last;
+    unsigned int elementCount;
 
 };
 

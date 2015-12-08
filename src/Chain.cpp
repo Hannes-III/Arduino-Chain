@@ -27,15 +27,32 @@ License along with this library.
 Chain::Chain() { // Chain, Chain, Chain ...
   first  =NULL;
   last   =NULL;
+  elementCount=0;
+}
+
+
+/** Removes all elements from the Chain.
+ * @param deleteOnRemove - As the Element most probably has been created
+ *        with 'new ...' someone has to take care, that the Element will free
+ *        its memory space. If you need the element later, you have to provide false,
+ *        because true is default.
+ */
+void Chain::clear(bool deleteOnRemove) {
+  ChainElement* remove = first;
+  while(remove!=NULL){
+    remove = removeElement(remove, deleteOnRemove);
+  }
 }
 
 /** Appends ChainElement element to the tail of the chain.
  * @param &element - reference to the element to be appended.
- * @note ChainElement can only be part of the chain once.
+ * @note ChainElement can only be part of one chain once.
  *       And only part of one Chain.
  */
- void Chain::addElement(ChainElement* element) {
+void Chain::addElement(ChainElement* element) {
   if(element->myChain!=NULL) return;
+  elementCount++;
+
   element->myChain=this;
 
 	if(first == NULL){// First element situation:
@@ -60,6 +77,8 @@ Chain::Chain() { // Chain, Chain, Chain ...
  * @return the next element from the Chain. Or NULL if there is none.
  */
 ChainElement* Chain::removeElement(ChainElement* element, bool deleteOnRemove){
+  elementCount--;
+
   ChainElement* back = element->next;
 	if(element->prev == NULL){
 		if(element->next == NULL){
@@ -94,6 +113,9 @@ ChainElement* Chain::getFirst(){return first;}
 /** get the last element of the chain
  */
 ChainElement* Chain::getLast(){return last;}
+/** get size of the chain
+ */
+unsigned int Chain::size(){return elementCount;}
 
 
 // -- ChainElement ------------------------------------------------------------

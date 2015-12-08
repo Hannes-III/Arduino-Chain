@@ -10,6 +10,7 @@ ChainElement	KEYWORD1
 #
 addElement	KEYWORD2
 deleteElement	KEYWORD2
+clear	KEYWORD2
 getFirst	KEYWORD2
 getLast	KEYWORD2
 getNext	KEYWORD2
